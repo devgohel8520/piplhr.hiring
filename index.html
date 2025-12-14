@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +30,7 @@
         .dashboard-header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .dashboard-header p {
@@ -43,7 +44,7 @@
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -120,13 +121,13 @@
             background: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .kpi-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .kpi-card h3 {
@@ -160,7 +161,7 @@
             background: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .chart-card.full-width {
@@ -193,7 +194,7 @@
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .filter-section h3 {
@@ -260,7 +261,8 @@
             margin-top: 10px;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
@@ -280,7 +282,7 @@
             .chart-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .dashboard-header h1 {
                 font-size: 1.8em;
             }
@@ -289,8 +291,229 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Raw Data Table Styles */
+        .data-table-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .data-table-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .table-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px 15px;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .table-info {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .data-table-wrapper {
+            overflow-x: auto;
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        #rawDataTable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        #rawDataTable thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #667eea;
+        }
+
+        #rawDataTable th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            padding: 12px 8px;
+            text-align: left;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+
+        #rawDataTable th:hover {
+            background: #5568d3;
+        }
+
+        #rawDataTable th::after {
+            content: ' ⇅';
+            opacity: 0.5;
+            font-size: 0.8em;
+        }
+
+        #rawDataTable th.sort-asc::after {
+            content: ' â–²';
+            opacity: 1;
+        }
+
+        #rawDataTable th.sort-desc::after {
+            content: ' â–¼';
+            opacity: 1;
+        }
+
+        #rawDataTable td {
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        #rawDataTable tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        #rawDataTable tbody tr:hover {
+            background-color: #f8f9ff;
+        }
+
+        #rawDataTable tbody tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        #rawDataTable tbody tr:nth-child(even):hover {
+            background-color: #f8f9ff;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .status-confirmed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejected {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-scheduled {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-done {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .status-default {
+            background: #e7e7e7;
+            color: #333;
+        }
+
+        .no-data-message {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-style: italic;
+        }
+
+        .pagination-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pagination-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .pagination-buttons button {
+            padding: 8px 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+
+        .pagination-buttons button:hover:not(:disabled) {
+            background: #764ba2;
+        }
+
+        .pagination-buttons button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .pagination-info {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .rows-per-page {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rows-per-page select {
+            padding: 6px 10px;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
     <div class="dashboard-header">
         <h1>🎯 Recruitment Dashboard</h1>
@@ -431,12 +654,55 @@
             </div>
         </div>
     </div>
+    <!-- Raw Data Table Section -->
+    <div class="data-table-section full-width" id="rawDataSection" style="display: none;">
+        <h2>📋 All Candidate Data</h2>
+
+        <div class="table-controls">
+            <input type="text" id="searchInput" class="search-box"
+                placeholder="🔍 Search by name, job title, status, phone..." onkeyup="searchTable()">
+            <div class="rows-per-page">
+                <label>Rows per page:</label>
+                <select id="rowsPerPage" onchange="changeRowsPerPage()">
+                    <option value="25">25</option>
+                    <option value="50" selected>50</option>
+                    <option value="100">100</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+            <span class="table-info" id="tableInfo">No data loaded</span>
+        </div>
+
+        <div class="data-table-wrapper">
+            <table id="rawDataTable">
+                <thead id="tableHeader">
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="100" class="no-data-message">
+                            Upload a CSV file to view candidate data
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination-controls" id="paginationControls" style="display: none;">
+            <div class="pagination-info" id="paginationInfo"></div>
+            <div class="pagination-buttons">
+                <button onclick="changePage('first')">« First</button>
+                <button onclick="changePage('prev')">‹ Previous</button>
+                <button onclick="changePage('next')">Next ›</button>
+                <button onclick="changePage('last')">Last »</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         let csvData = [];
         let originalCsvData = [];
         let charts = {};
-        
+
         // DEFINED STATUS ORDER - This is the master order for all filters and charts
         const STATUS_ORDER = [
             'Select',
@@ -458,7 +724,7 @@
             'Training Done',
             'Call on Top Priority'
         ];
-        
+
         const chartColors = {
             primary: '#667eea',
             secondary: '#764ba2',
@@ -467,7 +733,7 @@
             danger: '#dc3545',
             info: '#17a2b8',
             gradient: [
-                '#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b', 
+                '#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b',
                 '#fa709a', '#fee140', '#30cfd0', '#a8edea', '#fed6e3',
                 '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7',
                 '#dfe6e9', '#74b9ff', '#a29bfe'
@@ -476,7 +742,7 @@
 
         // Drag and drop functionality
         const uploadArea = document.getElementById('uploadArea');
-        
+
         uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadArea.classList.add('dragover');
@@ -508,21 +774,21 @@
         // Parse CSV file
         function parseCSV(file) {
             document.getElementById('loading').classList.add('show');
-            
+
             Papa.parse(file, {
                 header: true,
                 skipEmptyLines: true,
-                complete: function(results) {
+                complete: function (results) {
                     csvData = results.data;
                     originalCsvData = [...csvData];
                     document.getElementById('loading').classList.remove('show');
-                    
+
                     // Debug: Log sample salary data
                     console.log('Sample salary values:', csvData.slice(0, 10).map(row => ({
                         job: row['JOB TITLE'],
                         salary: row['Past salary']
                     })));
-                    
+
                     // Show file info
                     const fileInfo = document.getElementById('fileInfo');
                     const fileDetails = document.getElementById('fileDetails');
@@ -532,11 +798,11 @@
                         Columns: <strong>${Object.keys(csvData[0] || {}).length}</strong>
                     `;
                     fileInfo.classList.add('show');
-                    
+
                     // Process and display data
                     processData();
                 },
-                error: function(error) {
+                error: function (error) {
                     document.getElementById('loading').classList.remove('show');
                     alert('Error parsing CSV: ' + error.message);
                 }
@@ -549,10 +815,10 @@
 
             // Update KPIs
             updateKPIs();
-            
+
             // Update filters
             updateFilters();
-            
+
             // Create/Update charts
             createCharts();
         }
@@ -560,31 +826,31 @@
         function updateKPIs() {
             // Total Candidates
             document.getElementById('totalCandidates').textContent = csvData.length;
-            
+
             // Active Pipeline (exclude rejected and confirmed)
             const activeStatuses = csvData.filter(row => {
                 const status = (row.STATUS || '').trim();
-                return !status.includes('Rejected') && 
-                       !status.includes('Confirm') && 
-                       status !== 'Select' &&
-                       status !== '';
+                return !status.includes('Rejected') &&
+                    !status.includes('Confirm') &&
+                    status !== 'Select' &&
+                    status !== '';
             });
             document.getElementById('activePipeline').textContent = activeStatuses.length;
-            
+
             // Interviews Scheduled
             const interviews = csvData.filter(row => {
                 const status = (row.STATUS || '').trim();
                 return status === 'Interview Scheduled' || status === 'Pre-Interview Scheduled';
             });
             document.getElementById('interviewsScheduled').textContent = interviews.length;
-            
+
             // Trials Scheduled
             const trials = csvData.filter(row => {
                 const status = (row.STATUS || '').trim();
                 return status === 'Trial Scheduled';
             });
             document.getElementById('trialsScheduled').textContent = trials.length;
-            
+
             // Confirmed Candidates
             const confirmed = csvData.filter(row => {
                 const status = (row.STATUS || '').trim();
@@ -606,10 +872,10 @@
             // Status Filter - USE DEFINED ORDER
             const statusFilter = document.getElementById('statusFilter');
             const uniqueStatuses = [...new Set(csvData.map(row => (row.STATUS || '').trim()).filter(Boolean))];
-            
+
             // Filter statuses to only include those in STATUS_ORDER
             const orderedStatuses = STATUS_ORDER.filter(status => uniqueStatuses.includes(status));
-            
+
             statusFilter.innerHTML = '<option value="all">All Statuses</option>';
             orderedStatuses.forEach(status => {
                 statusFilter.innerHTML += `<option value="${status}">${status}</option>`;
@@ -672,7 +938,7 @@
                         legend: { display: false },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     const total = orderedStatusData.reduce((a, b) => a + b, 0);
                                     const percentage = ((context.parsed.x / total) * 100).toFixed(1);
                                     return `${context.parsed.x} candidates (${percentage}%)`;
@@ -681,7 +947,7 @@
                         }
                     },
                     scales: {
-                        x: { 
+                        x: {
                             beginAtZero: true,
                             ticks: {
                                 stepSize: 1
@@ -723,7 +989,7 @@
                         },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     const total = sortedSources.reduce((sum, s) => sum + s[1], 0);
                                     const percentage = ((context.parsed / total) * 100).toFixed(1);
                                     return `${context.label}: ${context.parsed} (${percentage}%)`;
@@ -740,7 +1006,7 @@
                 const job = row['JOB TITLE'] || 'Unknown';
                 jobCounts[job] = (jobCounts[job] || 0) + 1;
             });
-            
+
             const topJobs = Object.entries(jobCounts)
                 .sort((a, b) => b[1] - a[1])
                 .slice(0, 10);
@@ -760,21 +1026,21 @@
                     indexAxis: 'y',
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { 
+                    plugins: {
                         legend: { display: false },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return `${context.parsed.x} candidates`;
                                 }
                             }
                         }
                     },
-                    scales: { 
-                        x: { 
+                    scales: {
+                        x: {
                             beginAtZero: true,
                             ticks: { stepSize: 1 }
-                        } 
+                        }
                     }
                 }
             });
@@ -852,24 +1118,24 @@
             // 6. Salary Analysis by Job Title - IMPROVED VERSION
             const salaryByJob = {};
             let totalSalaryEntries = 0;
-            
+
             csvData.forEach(row => {
                 const job = row['JOB TITLE'];
                 const salaryStr = (row['Past salary'] || '').toString();
-                
+
                 // Try multiple parsing methods
                 let salary = 0;
-                
+
                 // Remove all non-numeric characters except decimal point
                 const cleanSalary = salaryStr.replace(/[^0-9.]/g, '');
                 salary = parseFloat(cleanSalary);
-                
+
                 // If still no valid salary, try comma as decimal separator
                 if (isNaN(salary) || salary === 0) {
                     const commaDecimal = salaryStr.replace(/[^0-9,]/g, '').replace(',', '.');
                     salary = parseFloat(commaDecimal);
                 }
-                
+
                 if (job && job.trim() !== '' && !isNaN(salary) && salary > 0 && salary < 10000000) {
                     if (!salaryByJob[job]) salaryByJob[job] = [];
                     salaryByJob[job].push(salary);
@@ -891,176 +1157,372 @@
                     .map(([job, salaries]) => ({
                         job: job,
                         min: Math
-.min(...salaries),
-avg: salaries.reduce((a, b) => a + b) / salaries.length,
-max: Math.max(...salaries),
-count: salaries.length
-}));
-if (salaryData.length > 0) {
-                charts.salary = new Chart(document.getElementById('salaryChart'), {
-                    type: 'bar',
-                    data: {
-                        labels: salaryData.map(d => d.job),
-                        datasets: [
-                            {
-                                label: 'Minimum Salary',
-                                data: salaryData.map(d => d.min),
-                                backgroundColor: 'rgba(220, 53, 69, 0.7)',
-                                borderColor: chartColors.danger,
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Average Salary',
-                                data: salaryData.map(d => d.avg),
-                                backgroundColor: 'rgba(102, 126, 234, 0.7)',
-                                borderColor: chartColors.primary,
-                                borderWidth: 1
-                            },
-                            {
-                                label: 'Maximum Salary',
-                                data: salaryData.map(d => d.max),
-                                backgroundColor: 'rgba(40, 167, 69, 0.7)',
-                                borderColor: chartColors.success,
-                                borderWidth: 1
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { 
-                                position: 'top',
-                                labels: {
-                                    font: { size: 12 }
+                            .min(...salaries),
+                        avg: salaries.reduce((a, b) => a + b) / salaries.length,
+                        max: Math.max(...salaries),
+                        count: salaries.length
+                    }));
+                if (salaryData.length > 0) {
+                    charts.salary = new Chart(document.getElementById('salaryChart'), {
+                        type: 'bar',
+                        data: {
+                            labels: salaryData.map(d => d.job),
+                            datasets: [
+                                {
+                                    label: 'Minimum Salary',
+                                    data: salaryData.map(d => d.min),
+                                    backgroundColor: 'rgba(220, 53, 69, 0.7)',
+                                    borderColor: chartColors.danger,
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Average Salary',
+                                    data: salaryData.map(d => d.avg),
+                                    backgroundColor: 'rgba(102, 126, 234, 0.7)',
+                                    borderColor: chartColors.primary,
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Maximum Salary',
+                                    data: salaryData.map(d => d.max),
+                                    backgroundColor: 'rgba(40, 167, 69, 0.7)',
+                                    borderColor: chartColors.success,
+                                    borderWidth: 1
                                 }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    title: function(context) {
-                                        const index = context[0].dataIndex;
-                                        return `${salaryData[index].job} (${salaryData[index].count} candidates)`;
-                                    },
-                                    label: function(context) {
-                                        return context.dataset.label + ': ₹' + Math.round(context.parsed.y).toLocaleString('en-IN');
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                    labels: {
+                                        font: { size: 12 }
+                                    }
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        title: function (context) {
+                                            const index = context[0].dataIndex;
+                                            return `${salaryData[index].job} (${salaryData[index].count} candidates)`;
+                                        },
+                                        label: function (context) {
+                                            return context.dataset.label + ': ₹' + Math.round(context.parsed.y).toLocaleString('en-IN');
+                                        }
                                     }
                                 }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                ticks: {
-                                    autoSkip: false,
-                                    maxRotation: 45,
-                                    minRotation: 45,
-                                    font: { size: 10 }
-                                }
                             },
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    callback: function(value) {
-                                        if (value >= 100000) {
-                                            return '₹' + (value / 100000).toFixed(1) + 'L';
+                            scales: {
+                                x: {
+                                    ticks: {
+                                        autoSkip: false,
+                                        maxRotation: 45,
+                                        minRotation: 45,
+                                        font: { size: 10 }
+                                    }
+                                },
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function (value) {
+                                            if (value >= 100000) {
+                                                return '₹' + (value / 100000).toFixed(1) + 'L';
+                                            }
+                                            return '₹' + (value / 1000).toFixed(0) + 'K';
                                         }
-                                        return '₹' + (value / 1000).toFixed(0) + 'K';
                                     }
                                 }
                             }
                         }
-                    }
-                });
+                    });
 
-                // Populate salary table
-                document.getElementById('salaryTableCard').style.display = 'block';
-                const tbody = document.getElementById('salaryTableBody');
-                tbody.innerHTML = '';
-                
-                salaryData.forEach((d, index) => {
-                    const row = tbody.insertRow();
-                    row.style.background = index % 2 === 0 ? '#f8f9ff' : 'white';
-                    row.innerHTML = `
+                    // Populate salary table
+                    document.getElementById('salaryTableCard').style.display = 'block';
+                    const tbody = document.getElementById('salaryTableBody');
+                    tbody.innerHTML = '';
+
+                    salaryData.forEach((d, index) => {
+                        const row = tbody.insertRow();
+                        row.style.background = index % 2 === 0 ? '#f8f9ff' : 'white';
+                        row.innerHTML = `
                         <td>${d.job}</td>
                         <td style="text-align: right;">${d.count}</td>
                         <td style="text-align: right;">₹${Math.round(d.min).toLocaleString('en-IN')}</td>
                         <td style="text-align: right;">₹${Math.round(d.avg).toLocaleString('en-IN')}</td>
                         <td style="text-align: right;">₹${Math.round(d.max).toLocaleString('en-IN')}</td>
                     `;
-                });
+                    });
+                } else {
+                    document.getElementById('salaryChartWrapper').innerHTML =
+                        '<div class="empty-message">' +
+                        '<p>📊 Insufficient Salary Data</p>' +
+                        '<p>Need at least 2 candidates per job title with valid salary information</p>' +
+                        '<p style="margin-top: 15px;">Found ' + totalSalaryEntries + ' salary entries across ' + Object.keys(salaryByJob).length + ' job titles</p>' +
+                        '</div>';
+                }
             } else {
-                document.getElementById('salaryChartWrapper').innerHTML = 
+                document.getElementById('salaryChartWrapper').innerHTML =
                     '<div class="empty-message">' +
-                    '<p>📊 Insufficient Salary Data</p>' +
-                    '<p>Need at least 2 candidates per job title with valid salary information</p>' +
-                    '<p style="margin-top: 15px;">Found ' + totalSalaryEntries + ' salary entries across ' + Object.keys(salaryByJob).length + ' job titles</p>' +
+                    '<p>💰 No Salary Information Found</p>' +
+                    '<p>The "Past salary" column appears to be empty or contains invalid data</p>' +
+                    '<p style="margin-top: 10px; font-size: 0.9em;">Accepted formats: 50000, 50,000, 50000.00, ₹50000</p>' +
                     '</div>';
             }
-        } else {
-            document.getElementById('salaryChartWrapper').innerHTML = 
-                '<div class="empty-message">' +
-                '<p>💰 No Salary Information Found</p>' +
-                '<p>The "Past salary" column appears to be empty or contains invalid data</p>' +
-                '<p style="margin-top: 10px; font-size: 0.9em;">Accepted formats: 50000, 50,000, 50000.00, ₹50000</p>' +
-                '</div>';
-        }
-    }
-
-    function applyFilters() {
-        const jobFilter = document.getElementById('jobFilter').value;
-        const statusFilter = document.getElementById('statusFilter').value;
-        const qualFilter = document.getElementById('qualificationFilter').value;
-        
-        csvData = [...originalCsvData];
-        
-        if (jobFilter !== 'all') {
-            csvData = csvData.filter(row => row['JOB TITLE'] === jobFilter);
-        }
-        if (statusFilter !== 'all') {
-            csvData = csvData.filter(row => (row.STATUS || '').trim() === statusFilter);
-        }
-        if (qualFilter !== 'all') {
-            csvData = csvData.filter(row => row.QUALIFICATION === qualFilter);
-        }
-        
-        processData();
-        
-        alert(`✅ Filters Applied!\nShowing ${csvData.length} of ${originalCsvData.length} candidates`);
-    }
-
-    function resetFilters() {
-        document.getElementById('jobFilter').value = 'all';
-        document.getElementById('statusFilter').value = 'all';
-        document.getElementById('qualificationFilter').value = 'all';
-        
-        csvData = [...originalCsvData];
-        processData();
-    }
-
-    function exportData() {
-        if (csvData.length === 0) {
-            alert('Please upload CSV data first!');
-            return;
         }
 
-        const headers = Object.keys(csvData[0]);
-        let csvContent = headers.join(',') + '\n';
-        
-        csvData.forEach(row => {
-            const values = headers.map(header => {
-                const value = row[header] || '';
-                return `"${value}"`;
+        function applyFilters() {
+            const jobFilter = document.getElementById('jobFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const qualFilter = document.getElementById('qualificationFilter').value;
+
+            csvData = [...originalCsvData];
+
+            if (jobFilter !== 'all') {
+                csvData = csvData.filter(row => row['JOB TITLE'] === jobFilter);
+            }
+            if (statusFilter !== 'all') {
+                csvData = csvData.filter(row => (row.STATUS || '').trim() === statusFilter);
+            }
+            if (qualFilter !== 'all') {
+                csvData = csvData.filter(row => row.QUALIFICATION === qualFilter);
+            }
+
+            processData();
+
+            alert(`✅ Filters Applied!\nShowing ${csvData.length} of ${originalCsvData.length} candidates`);
+        }
+
+        function resetFilters() {
+            document.getElementById('jobFilter').value = 'all';
+            document.getElementById('statusFilter').value = 'all';
+            document.getElementById('qualificationFilter').value = 'all';
+
+            csvData = [...originalCsvData];
+            processData();
+        }
+
+        function exportData() {
+            if (csvData.length === 0) {
+                alert('Please upload CSV data first!');
+                return;
+            }
+
+            const headers = Object.keys(csvData[0]);
+            let csvContent = headers.join(',') + '\n';
+
+            csvData.forEach(row => {
+                const values = headers.map(header => {
+                    const value = row[header] || '';
+                    return `"${value}"`;
+                });
+                csvContent += values.join(',') + '\n';
             });
-            csvContent += values.join(',') + '\n';
-        });
 
-        const blob = new Blob([csvContent], { type: 'text/csv' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `filtered_candidates_${new Date().toISOString().split('T')[0]}.csv`;
-        a.click();
-        window.URL.revokeObjectURL(url);
-    }
-</script>
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `filtered_candidates_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        // Raw Data Table Variables
+        let currentPage = 1;
+        let rowsPerPage = 50;
+        let sortColumn = null;
+        let sortDirection = 'asc';
+        let filteredData = [];
+
+        // Display Raw Data Table
+        function displayRawDataTable() {
+            if (csvData.length === 0) return;
+
+            // Show the section
+            document.getElementById('rawDataSection').style.display = 'block';
+
+            filteredData = [...csvData];
+
+            // Get all column headers
+            const headers = Object.keys(csvData[0]);
+
+            // Create table header
+            const tableHeader = document.getElementById('tableHeader');
+            tableHeader.innerHTML = '<tr>' +
+                headers.map(header => `<th onclick="sortTable('${header}')">${header}</th>`).join('') +
+                '</tr>';
+
+            // Reset pagination
+            currentPage = 1;
+
+            // Update table
+            updateTable();
+        }
+
+        function updateTable() {
+            const tableBody = document.getElementById('tableBody');
+            const tableInfo = document.getElementById('tableInfo');
+            const paginationControls = document.getElementById('paginationControls');
+
+            if (filteredData.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="100" class="no-data-message">No matching records found</td></tr>';
+                tableInfo.textContent = 'No data';
+                paginationControls.style.display = 'none';
+                return;
+            }
+
+            // Calculate pagination
+            const totalRows = filteredData.length;
+            const totalPages = rowsPerPage === 'all' ? 1 : Math.ceil(totalRows / rowsPerPage);
+            const startIndex = rowsPerPage === 'all' ? 0 : (currentPage - 1) * rowsPerPage;
+            const endIndex = rowsPerPage === 'all' ? totalRows : Math.min(startIndex + rowsPerPage, totalRows);
+
+            // Get page data
+            const pageData = filteredData.slice(startIndex, endIndex);
+
+            // Generate table rows
+            const headers = Object.keys(csvData[0]);
+            tableBody.innerHTML = pageData.map(row => {
+                return '<tr>' + headers.map(header => {
+                    let value = row[header] || '';
+
+                    // Apply status badge if it's the STATUS column
+                    if (header === 'STATUS' && value) {
+                        const statusClass = getStatusClass(value);
+                        return `<td><span class="status-badge ${statusClass}">${value}</span></td>`;
+                    }
+
+                    return `<td title="${value}">${value}</td>`;
+                }).join('') + '</tr>';
+            }).join('');
+
+            // Update info
+            tableInfo.textContent = `Showing ${startIndex + 1}-${endIndex} of ${totalRows} records`;
+
+            // Update pagination
+            if (rowsPerPage !== 'all' && totalPages > 1) {
+                paginationControls.style.display = 'flex';
+                document.getElementById('paginationInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+
+                // Update button states
+                const buttons = document.querySelectorAll('.pagination-buttons button');
+                buttons[0].disabled = currentPage === 1; // First
+                buttons[1].disabled = currentPage === 1; // Previous
+                buttons[2].disabled = currentPage === totalPages; // Next
+                buttons[3].disabled = currentPage === totalPages; // Last
+            } else {
+                paginationControls.style.display = 'none';
+            }
+        }
+
+        function getStatusClass(status) {
+            if (!status) return 'status-default';
+            if (status.includes('Confirm') || status.includes('Onboarding') || status.includes('Training')) return 'status-confirmed';
+            if (status.includes('Rejected') || status.includes('Phone Not Received')) return 'status-rejected';
+            if (status.includes('Scheduled') || status.includes('Top Priority')) return 'status-scheduled';
+            if (status.includes('Done') || status.includes('Offer')) return 'status-done';
+            return 'status-default';
+        }
+
+        function searchTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            if (searchTerm === '') {
+                filteredData = [...csvData];
+            } else {
+                filteredData = csvData.filter(row => {
+                    return Object.values(row).some(value =>
+                        String(value).toLowerCase().includes(searchTerm)
+                    );
+                });
+            }
+
+            currentPage = 1;
+            updateTable();
+        }
+
+        function sortTable(column) {
+            // Toggle sort direction
+            if (sortColumn === column) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortColumn = column;
+                sortDirection = 'asc';
+            }
+
+            // Sort the data
+            filteredData.sort((a, b) => {
+                let aVal = a[column] || '';
+                let bVal = b[column] || '';
+
+                // Try to parse as number
+                const aNum = parseFloat(aVal);
+                const bNum = parseFloat(bVal);
+
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return sortDirection === 'asc' ? aNum - bNum : bNum - aNum;
+                }
+
+                // String comparison
+                aVal = String(aVal).toLowerCase();
+                bVal = String(bVal).toLowerCase();
+
+                if (sortDirection === 'asc') {
+                    return aVal.localeCompare(bVal);
+                } else {
+                    return bVal.localeCompare(aVal);
+                }
+            });
+
+            // Update header styling
+            document.querySelectorAll('#tableHeader th').forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+
+            const headerCells = Array.from(document.querySelectorAll('#tableHeader th'));
+            const columnIndex = Object.keys(csvData[0]).indexOf(column);
+            if (columnIndex !== -1) {
+                headerCells[columnIndex].classList.add(sortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
+            }
+
+            updateTable();
+        }
+
+        function changePage(action) {
+            const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+
+            switch (action) {
+                case 'first':
+                    currentPage = 1;
+                    break;
+                case 'prev':
+                    if (currentPage > 1) currentPage--;
+                    break;
+                case 'next':
+                    if (currentPage < totalPages) currentPage++;
+                    break;
+                case 'last':
+                    currentPage = totalPages;
+                    break;
+            }
+
+            updateTable();
+        }
+
+        function changeRowsPerPage() {
+            const select = document.getElementById('rowsPerPage');
+            rowsPerPage = select.value === 'all' ? 'all' : parseInt(select.value);
+            currentPage = 1;
+            updateTable();
+        }
+
+        // Update the processData function to include raw data table
+        const originalProcessData = processData;
+        processData = function () {
+            originalProcessData();
+            displayRawDataTable();
+        };
+    </script>
 </body>
+
 </html>
